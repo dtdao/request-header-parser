@@ -14,7 +14,7 @@ app.get("/api/whoami/", function(req, res){
   var ipAdd = req.get("x-forwarded-for").split(",")[0]
   //decide to use a the user agent parser module
   
-  var ua = req.headers['user-agent']
+  var ua = req.headers['user-agent'] // this is just the same as req.get("user-agent")
   var os = parser.setUA(ua).getOS()
   
   res.json({"IP Address": ipAdd, "Lanuage": language, "Operating System": os["name"] + " " + os["version"]})
